@@ -1,0 +1,12 @@
+{
+  "ID": "f5b81022-5b55-4ccd-877c-604c4796236e",
+  "ActionKeywords": ["b", "B", "w", "W", "s", "S", "e", "E", "c", "C"],
+  "Name": "FlowVim",
+  "Description": "Vim-like command palette: b(rowser), w(indow), s(creen), e(dit), c(lipboard)",
+  "Author": "FlowVim",
+  "Version": "1.0.0",
+  "Language": "python",
+  "Website": "",
+  "IcoPath": "Images\\icon.png",
+  "ExecuteFileName": "main.py"
+}
