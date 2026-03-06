@@ -5,7 +5,7 @@
 ![Flow Launcher](https://img.shields.io/badge/Flow_Launcher-Plugin-blue)
 ![AutoHotkey](https://img.shields.io/badge/AutoHotkey-v1-green)
 ![Python](https://img.shields.io/badge/Python-3.11-yellow)
-![Commands](https://img.shields.io/badge/49_Commands-Ready-brightgreen)
+![Commands](https://img.shields.io/badge/45_Commands-Ready-brightgreen)
 
 ---
 
@@ -31,7 +31,6 @@ You already know how to type words. So type words:
 
 - `b next` -- next browser tab
 - `w min` -- minimize the window
-- `s snip` -- screenshot
 - `e line` -- select the current line
 - `c hist` -- open clipboard history
 
@@ -41,7 +40,7 @@ Open Flow Launcher. Type two words. Press Enter. Done.
 
 ## What You Get
 
-**49 commands** across 5 categories, all accessible by typing.
+**45 commands** across 4 active categories, all accessible by typing or voice (Win+H).
 
 ### Browser (`b`) -- 18 commands
 
@@ -79,9 +78,9 @@ Snap, minimize, maximize, close. The window management shortcuts that are slight
 | `w left`  | Snap window to left half                   | Win+Left           |
 | `w right` | Snap window to right half                  | Win+Right          |
 
-### Screen (`s`) -- 3 commands
+### Screen (`s`) -- 3 commands (requires setup)
 
-Screenshots, projector setup, display settings. The stuff you need twice a week and forget every single time.
+> **Note:** The `s` keyword conflicts with the built-in **Windows Settings** plugin, which also claims `s`. To use FlowVim's screen commands, change the Windows Settings plugin's keyword: Flow Launcher Settings (Ctrl+I) > Plugins > Windows Settings > change action keyword from `s` to `set`. If you don't need screen commands, just skip this.
 
 | Command  | What it does               | The shortcut        |
 | -------- | -------------------------- | ------------------- |
@@ -210,7 +209,7 @@ AHK_EXE = r"C:\Program Files\AutoHotkey\AutoHotkey.exe"  # change this
 
 ### Voice typing (Win+H)
 
-FlowVim works with Windows voice typing. Both `b next` and `B next` are recognized -- the plugin registers uppercase and lowercase variants of every keyword. Just say the letter and the command.
+FlowVim registers both lowercase and uppercase variants of every keyword (`b` and `B`, `e` and `E`, etc.). Windows voice typing capitalizes the first letter, so saying "B next" or "b next" both work. Note that `s`/`S` may not work if the Windows Settings plugin claims that keyword first (see Screen section above).
 
 ---
 
@@ -293,7 +292,7 @@ That's it. No build step. No compilation. No deployment pipeline. Edit two files
 Yes. The browser commands send standard keyboard shortcuts (Ctrl+Tab, Ctrl+W, etc.) that work in every Chromium and Firefox-based browser. The only exception is `b pin` which uses Chrome/Edge's context menu shortcut.
 
 **Does this conflict with other Flow Launcher plugins?**
-The keywords `b`, `w`, `s`, `e`, `c` (plus uppercase variants for voice typing) are registered as action keywords. Flow Launcher only calls FlowVim when you start typing with one of these letters followed by a space. Your normal searches, app launches, and other plugins are unaffected.
+Flow Launcher allows only one plugin per action keyword. FlowVim registers `b`, `w`, `e`, `c` (plus uppercase variants `B`, `W`, `E`, `C` for voice typing). The `s` keyword may conflict with the built-in Windows Settings plugin -- see the Screen section for the fix. Keywords `b`, `w`, `e`, `c` have no conflicts with default plugins.
 
 **Why not just use AutoHotkey directly?**
 You could. But then you need to memorize a bunch of hotkey combos -- which is the exact problem we're solving. FlowVim gives you a searchable, discoverable interface. You type what you want in plain English.
@@ -305,7 +304,7 @@ Python plugins are easier to hack on. You can edit `main.py` in Notepad and rest
 Yes. Edit `plugin.json` and change the `ActionKeywords` array. Then restart Flow Launcher. You can use any single character or short string that doesn't conflict with your other plugins.
 
 **Does this work with voice typing (Win+H)?**
-Yes. The plugin registers both lowercase and uppercase variants of every keyword (`b` and `B`, `e` and `E`, etc.). Windows voice typing often capitalizes the first letter, so saying "B next" or "b next" both work.
+Yes. The plugin registers uppercase variants of every keyword. Windows voice typing capitalizes the first letter, so saying "B next" produces `B next` which triggers FlowVim. The only exception is `s`/`S` if the Windows Settings plugin is claiming that keyword.
 
 ---
 
